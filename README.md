@@ -4,7 +4,7 @@ Django REST Framework application with movie details download from [OMDB API](ht
 ## Requirements
 Install PostgreSQL 9.5+, Python 3.7 and Django 2.1
 
-Create postgres account for REST application. Configure database configuration to:
+Create postgres account for REST application. Configure your postgres database:
 * src/movies/settings.py ([see more](https://docs.djangoproject.com/en/2.1/ref/settings/#databases)) 
 * or export it in environment setting DATABASE_URL (see [dj-database-url](https://github.com/jacobian/dj-database-url)). Example:
 ```DATABASE_URL=postgres://movie:password@localhost:5432/movies```
