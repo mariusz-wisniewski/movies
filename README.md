@@ -2,7 +2,7 @@
 Django REST Framework application with movie details download from [OMDB API](http://www.omdbapi.com/)
 
 ## Requirements
-Install PostgreSQL 9.5+, Python 3.7 and Django 2.1
+Install PostgreSQL 11.4+, Python 3.7 and Django 2.1
 
 Create postgres account for REST application. Configure your postgres database:
 * src/movies/settings.py ([see more](https://docs.djangoproject.com/en/2.1/ref/settings/#databases)) 
