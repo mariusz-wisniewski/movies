@@ -32,3 +32,48 @@ To run unit tests use following command:
 
 ## API Specification
 API specification is available here: [API](API.md)
+
+## Docker
+
+1. Create an empty project directory.
+2. Create a new file called Dockerfile in your project directory and add following content:
+
+  ```FROM python:3
+  ENV PYTHONUNBUFFERED 1
+  RUN mkdir /code
+  WORKDIR /code
+  COPY requirements.txt /code/
+  RUN pip install -r requirements.txt
+  COPY . /code/ 
+  ```
+
+3. Copy [requirements](requirements.txt) file to project directory.
+4. Create a file called docker-compose.yml in your project directory and add following content:
+
+  ```version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=movie
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=movies
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+  web:
+    build: .
+    container_name: omdb_django
+    environment:
+      - DATABASE_URL=postgres://movie:password@db:5432/movies
+    volumes:
+      - .:/copy
+    command: bash -c "while !</dev/tcp/db/5432; do sleep 60; done; python /code/movie_rest/manage.py migrate && python /code/movie_rest/manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+  ```
+5. Download [movie_rest](movie_rest) project folder with content.
+6. Start containers:
+  ```docker-compose up```
