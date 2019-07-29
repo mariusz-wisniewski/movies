@@ -19,13 +19,15 @@ Add OMDB API-key to src/movies/setting.py:
 Install all python requirements and run migration:
 ```pip install -r requirements.txt```
 cd movies
-python manage.py migrate```
+python manage.py migrate
 
 Now you are ready to start django locally:
+
 ```python manage.py runserver```
 
 ## Run tests
 To run unit tests use following command:
+
 ```python manage.py test```
 
 ## API Specification
