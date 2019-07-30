@@ -74,6 +74,6 @@ services:
     ports:
       - "8000:8000"
   ```
-5. Download [movie_rest](movie_rest) project folder with content.
+5. Download [movie_rest](movie_rest) repository and save in folder created in step 1.
 6. Start containers:
   ```docker-compose up```
