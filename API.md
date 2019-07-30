@@ -17,9 +17,9 @@ Following project support three endpoint:
 
 Request:
 
-| Attribute                | Description                                                                        | Optional |
-| ------------------------ | ---------------------------------------------------------------------------------- | -------- |
-| `title`                  | The title of the movie - max 255 chars.                                            | no       |
+  | Attribute                | Description                                                                        | Optional |
+  | ------------------------ | ---------------------------------------------------------------------------------- | -------- |
+  | `title`                  | The title of the movie - max 255 chars.                                            | no       |
 
 Responses:
 - 201 - movie created
@@ -51,8 +51,15 @@ Responses:
   | ------------------------ | ---------------------------------------------------------------------------------- | -------- |
   | `OMDB API`               | Error message.                                                                     | no       |
 
-### Getting list of all movies:
+### Getting movie/movies:
 ```GET /movies```
+
+Query params:
+
+  | Param                    | Description                                                                        | Optional |
+  | ------------------------ | ---------------------------------------------------------------------------------- | -------- |
+  | `title`                  | The tile of the movie.                                                             | yes      |
+
 Response:
 200 - ok
 
@@ -87,10 +94,10 @@ Movie details
 
 Request:
 
-| Attribute                | Description                                                                        | Optional |
-| ------------------------ | ---------------------------------------------------------------------------------- | -------- |
-| `movie_id`               | The ID of the [movie](#movies).                                                    | no       |
-| `comment`                | Comment to the movie.                                                              | no       |
+  | Attribute                | Description                                                                        | Optional |
+  | ------------------------ | ---------------------------------------------------------------------------------- | -------- |
+  | `movie_id`               | The ID of the [movie](#movies).                                                    | no       |
+  | `comment`                | Comment to the movie.                                                              | no       |
 
 Responses:
 * 201 - comment created
@@ -106,7 +113,8 @@ Responses:
   | ------------------------ | ---------------------------------------------------------------------------------- | -------- |
   | `comment`                | Array with `comment` related errors details.                                       | yes*     |
   
-  \* at least one of the attributes must not be null
+  * at least one of the attributes must not be null
+  
 * 415 - POST sent with inproper content type
 
 ### Getting list of comments:
@@ -115,14 +123,14 @@ Responses:
 
 Query params:
 
-| Param                    | Description                                                                        | Optional |
-| ------------------------ | ---------------------------------------------------------------------------------- | -------- |
-| `movie_id`               | The ID of the movie.                                                               | yes      |
+  | Param                    | Description                                                                        | Optional |
+  | ------------------------ | ---------------------------------------------------------------------------------- | -------- |
+  | `movie_id`               | The ID of the movie.                                                               | yes      |
 
 Responses:
 * 200 - ok
 
-  List of comments:
+List of comments:
   
   | Attribute                | Description                                                                        | Nullable |
   | ------------------------ | ---------------------------------------------------------------------------------- | -------- |
@@ -139,11 +147,10 @@ Return 5 movies with the greatest rank. Rank is calculated based on the number o
 
 Query params:
 
-| Param                    | Description                                                                        | Optional |
-| ------------------------ | ---------------------------------------------------------------------------------- | -------- |
-| `start`                  | Period start date in format `YYYY-MM-DD'                                           | yes      |
-| `end`.                   | Period end date in format `YYYY-MM-DD'                                             | yes      |
-| ------------------------ | ---------------------------------------------------------------------------------- | -------- |
+  | Param                    | Description                                                                        | Optional |
+  | ------------------------ | ---------------------------------------------------------------------------------- | -------- |
+  | `start`                  | Period start date in format `YYYY-MM-DD`                                           | yes      |
+  | `end`.                   | Period end date in format `YYYY-MM-DD`                                             | yes      |
 
 Responses:
 * 200 - ok
