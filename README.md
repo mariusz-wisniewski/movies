@@ -19,7 +19,7 @@ Install all python requirements:
 
 ```pip install -r requirements.txt```
 
-Move do root application folder and run migration:
+Move to root application folder and run migration:
 
 ```python manage.py migrate```
 
